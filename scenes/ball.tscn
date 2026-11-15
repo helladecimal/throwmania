@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bwj1hrfoquwyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Ball" type="RigidBody2D" unique_id=336183156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2055469394]
+shape = SubResource("CircleShape2D_g4v7s")
+debug_color = Color(0.9771052, 0, 0.41036576, 0.41960785)
