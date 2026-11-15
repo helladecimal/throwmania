@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cq21812qm3heh" path="res://assets/VT323-Regular.ttf" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://b586qf1o2ecxo" path="res://assets/textures.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://c3pbqk02tj1u4" path="res://scripts/hud.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bwbic8grey4xf" path="res://scenes/end_flag.tscn" id="6_tefeu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("3_jyhfs")
@@ -23,6 +24,7 @@ texture = ExtResource("3_jyhfs")
 7:0/0 = 0
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_g4v7s"]
 physics_layer_0/collision_layer = 1
@@ -60,6 +62,16 @@ text = "Throw your ball with [LMB] to move your player"
 label_settings = SubResource("LabelSettings_jyhfs")
 autowrap_mode = 2
 
+[node name="RichTextLabel2" type="Label" parent="Main2D/Current Level/Level 1" unique_id=1059505503]
+texture_filter = 1
+offset_left = 686.0
+offset_top = -228.0
+offset_right = 1021.0
+offset_bottom = -27.0
+text = "Touch the goal to end the level!"
+label_settings = SubResource("LabelSettings_jyhfs")
+autowrap_mode = 2
+
 [node name="Player" parent="Main2D" unique_id=405129931 instance=ExtResource("1_o5qli")]
 lock_rotation = true
 script = ExtResource("2_sugp2")
@@ -81,3 +93,7 @@ offset_top = -4.0
 grow_horizontal = 2
 grow_vertical = 0
 show_percentage = false
+
+[node name="EndFlag" parent="." unique_id=115678146 instance=ExtResource("6_tefeu")]
+position = Vector2(1085, -192)
+rotation = -3.1415927
