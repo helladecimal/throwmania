@@ -13,23 +13,25 @@ size = Vector2(32, 32)
 physics_material_override = SubResource("PhysicsMaterial_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994624335]
-scale = Vector2(0.5, 0.5)
+position = Vector2(-2.5629997e-06, -2.5629997e-06)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692427593]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_nt7q6")
 
 [node name="powerbar" type="ColorRect" parent="." unique_id=1020938486]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -2.0
-offset_right = 2.0
-offset_bottom = 16.0
+offset_left = -7.8769855
+offset_top = -3.337223
+offset_right = 1.4570484
+offset_bottom = 44.63409
 grow_horizontal = 2
 rotation = -1.5707964
-pivot_offset = Vector2(2, 0)
+pivot_offset = Vector2(7.940613, 0.063627355)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=607625689]
 target_position = Vector2(64, 0)

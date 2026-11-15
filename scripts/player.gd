@@ -6,7 +6,7 @@ class_name Player
 @onready var powerbar: ColorRect = $powerbar
 @onready var ray: RayCast2D = $RayCast2D
 
-var power = 300.0
+var power = 450.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,9 +19,9 @@ func throw(speed):
 	var ball: Ball = ball_sc.instantiate()
 	
 	print(ray.get_collider())
-	ray.target_position = mouse_pos.normalized() * 32
+	ray.target_position = mouse_pos.normalized() * 128
 	print(position.distance_to(ray.get_collision_point()))
-	var ray_offset = (position.distance_to(ray.get_collision_point()) + 2) if ray.is_colliding() else 32
+	var ray_offset = (position.distance_to(ray.get_collision_point()) + 2) if ray.is_colliding() else 128
 	var offset = mouse_pos.normalized() * ray_offset
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	mouse_pos = get_local_mouse_position()
 	
-	var ball_speed = mouse_pos.length() if mouse_pos.length() < 100 else 100
+	var ball_speed = mouse_pos.length() if mouse_pos.length() < 200 else 200
 	if not moving and Input.is_action_pressed("LMB"):
 		
 		print(ball_speed)
