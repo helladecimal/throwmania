@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b586qf1o2ecxo" path="res://assets/textures.png" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://c3pbqk02tj1u4" path="res://scripts/hud.gd" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bwbic8grey4xf" path="res://scenes/end_flag.tscn" id="6_tefeu"]
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="7_lvlmgr"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_2.tscn" id="8_lvl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("3_jyhfs")
@@ -39,6 +41,8 @@ font_size = 65
 [node name="Main2D" type="Node2D" parent="." unique_id=38130521]
 
 [node name="Current Level" type="Node2D" parent="Main2D" unique_id=728105612]
+script = ExtResource("7_lvlmgr")
+next_levels = Array[PackedScene]([ExtResource("8_lvl2")])
 
 [node name="Level 1" type="Node2D" parent="Main2D/Current Level" unique_id=1546256148]
 
@@ -94,6 +98,6 @@ grow_horizontal = 2
 grow_vertical = 0
 show_percentage = false
 
-[node name="EndFlag" parent="." unique_id=115678146 instance=ExtResource("6_tefeu")]
+[node name="EndFlag" parent="Main2D/Current Level/Level 1" unique_id=115678146 instance=ExtResource("6_tefeu")]
 position = Vector2(1085, -192)
 rotation = -3.1415927
