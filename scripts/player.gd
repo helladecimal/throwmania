@@ -14,6 +14,10 @@ func _ready() -> void:
 
 func reset():
 	position = get_parent().find_child("Current Level").get_children()[0].find_child("Spawn").position
+	linear_velocity = Vector2(0, 0)
+	
+	for balls in get_parent().find_child("Balls").get_children():
+		balls.queue_free()
 
 var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
@@ -28,13 +32,15 @@ func throw(speed):
 	var ray_offset = (position.distance_to(ray.get_collision_point()) + 2) if ray.is_colliding() else 128
 	var offset = mouse_pos.normalized() * ray_offset
 	ball.position = position + offset
-	get_tree().root.add_child(ball)
+	get_parent().find_child("Balls").add_child(ball)
 	
 	ball.apply_central_impulse(mouse_pos.normalized() * speed) 
 	pass
 
 func _physics_process(delta: float) -> void:
 	linear_velocity *= 0.97
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(30, 32)
 
-[node name="EndFlag" type="Area2D" unique_id=115678146]
+[node name="EndFlag" type="Area2D" unique_id=115678146 groups=["End flag"]]
 scale = Vector2(3, 3)
 script = ExtResource("1_8s2b2")
 
