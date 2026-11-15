@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgyhpvffxhbf3"]
 
-[ext_resource type="Texture2D" uid="uid://1fm5smtdnssx" path="res://icon.svg" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://j2ae0dx10fx8" path="res://assets/icon.svg" id="1_o5qli"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 16.0
@@ -17,5 +17,8 @@ texture = ExtResource("1_o5qli")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Player" unique_id=1256322069]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1333205329]
+zoom = Vector2(2.5, 2.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2040209078]
