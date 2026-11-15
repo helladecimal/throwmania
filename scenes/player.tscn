@@ -13,10 +13,11 @@ size = Vector2(32, 32)
 physics_material_override = SubResource("PhysicsMaterial_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994624335]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692427593]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_nt7q6")
 
 [node name="powerbar" type="ColorRect" parent="." unique_id=1020938486]
