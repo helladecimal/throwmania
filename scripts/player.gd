@@ -4,6 +4,7 @@ class_name Player
 @export var health = 100
 @export var moving = false
 @onready var powerbar: ColorRect = $powerbar
+@onready var ray: RayCast2D = $RayCast2D
 
 var power = 300.0
 # Called when the node enters the scene tree for the first time.
@@ -14,9 +15,10 @@ var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
 func throw(speed):
 	print(speed)
-	var offset = mouse_pos.normalized() * 64
 	var ball_sc: PackedScene = load("res://scenes/ball.tscn")
 	var ball: Ball = ball_sc.instantiate()
+	var ray_offset = ball.position.distance_to(ray.get_collision_point()) - 5 if ball.position.distance_to(ray.get_collision_point()) < 64 else 64
+	var offset = mouse_pos.normalized() * ray_offset
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
 	
