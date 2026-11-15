@@ -10,19 +10,36 @@ var power = 400.0
 func _ready() -> void:
 	pass # Replace with function body.
 
-func throw():
+var mouse_pos = get_local_mouse_position()
+var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
+func throw(speed):
+	print(speed)
+	var offset = mouse_pos.normalized() * 10
+	var ball = Ball.new()
+	ball.position = position + offset
+	add_child(ball)
+	
+	ball.linear_velocity = mouse_pos.normalized() * speed
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	mouse_pos = get_local_mouse_position()
+	mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
+	
+	var ball_speed = mouse_pos.length() if mouse_pos.length() < 100 else 100
 	if not moving and Input.is_action_pressed("LMB"):
-		var mouse_pos = get_local_mouse_position()
-		var ball_speed = mouse_pos.length()
+		
 		print(ball_speed)
 		
 		powerbar.visible = true
-		powerbar.size.y = ball_speed
-		powerbar.rotation = atan2(mouse_pos.y, mouse_pos.x)
+		powerbar.size.y = ball_speed 
+		powerbar.rotation = mouse_dir
+	else:
+		powerbar.visible = false
+	
+	if not moving and Input.is_action_just_released("LMB"):
+		throw((ball_speed/100.0) * power)
 		pass
 		
 	pass

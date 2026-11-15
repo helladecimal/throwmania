@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://bwj1hrfoquwyd"]
 
 [ext_resource type="Texture2D" uid="uid://j2ae0dx10fx8" path="res://assets/icon.svg" id="1_7s4qf"]
+[ext_resource type="Script" uid="uid://5r3utpikltoj" path="res://scenes/ball.gd" id="1_cxlvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [node name="Ball" type="RigidBody2D" unique_id=336183156]
 lock_rotation = true
+script = ExtResource("1_cxlvu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2055469394]
 shape = SubResource("CircleShape2D_g4v7s")
