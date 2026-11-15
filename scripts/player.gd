@@ -17,10 +17,12 @@ func throw(speed):
 	print(speed)
 	var ball_sc: PackedScene = load("res://scenes/ball.tscn")
 	var ball: Ball = ball_sc.instantiate()
-	ray.rotation = mouse_pos.angle()
-	var ray_offset = 32
+	
+	print(ray.get_collider())
+	ray.target_position = mouse_pos.normalized() * 32
+	print(ray.get_collision_point().length())
+	var ray_offset = (ray.get_collision_point().length()) + 2 if ray.is_colliding() else 32
 	var offset = mouse_pos.normalized() * ray_offset
-	print(ray_offset)
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
 	
