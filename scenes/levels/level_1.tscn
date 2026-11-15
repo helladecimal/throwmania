@@ -67,9 +67,5 @@ autowrap_mode = 2
 position = Vector2(1085, -192)
 rotation = 3.1415927
 
-[node name="EndFlag2" parent="." unique_id=781507424 instance=ExtResource("3_6761a")]
-position = Vector2(136, -128)
-rotation = 3.1415927
-
 [node name="Spawn" type="Marker2D" parent="." unique_id=102710960]
 position = Vector2(-48, 80)

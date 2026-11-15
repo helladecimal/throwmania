@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var lvl: Level = get_parent()
-		lvl.get_tree().change_scene_to_file("res://scenes/levels/level_" + str(lvl.level) + ".tscn")
 		
-		body.reset()
+		lvl.get_parent().get_tree().change_scene_to_file("res://scenes/levels/level_" + str(lvl.level+1) + ".tscn")
+		
 	pass # Replace with function body.

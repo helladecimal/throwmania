@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var health_bar: ProgressBar = $HealthBar
-@onready var player = $"../Main2D/Player"
+@onready var main = $"../Main2D/Current Level"
+@onready var player = main.get_children()[0].find_child("Player")
 var label := Label.new()
 var max_health := 100
 

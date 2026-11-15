@@ -5,6 +5,7 @@ class_name Player
 @export var moving = false
 @onready var powerbar: ColorRect = $powerbar
 @onready var ray: RayCast2D = $RayCast2D
+@onready var cam = $Camera2D
 
 var power = 450.0
 # Called when the node enters the scene tree for the first time.
@@ -13,11 +14,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func reset():
-	position = get_parent().find_child("Current Level").get_children()[0].find_child("Spawn").position
+	position = get_parent().find_child("Spawn").position
 	linear_velocity = Vector2(0, 0)
 	
 	for balls in get_parent().find_child("Balls").get_children():
-		balls.queue_free()
+		balls.call_deferred("queue_free")
 
 var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2

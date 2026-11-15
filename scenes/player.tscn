@@ -11,6 +11,7 @@ size = Vector2(32, 32)
 
 [node name="Player" type="RigidBody2D" unique_id=405129931]
 physics_material_override = SubResource("PhysicsMaterial_cxlvu")
+lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994624335]
 position = Vector2(-2.5629997e-06, -2.5629997e-06)
@@ -35,3 +36,7 @@ pivot_offset = Vector2(7.940613, 0.063627355)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=607625689]
 target_position = Vector2(64, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1574871561]
+texture_filter = 1
+position_smoothing_enabled = true
