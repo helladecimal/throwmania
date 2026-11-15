@@ -17,18 +17,22 @@ func throw(speed):
 	print(speed)
 	var ball_sc: PackedScene = load("res://scenes/ball.tscn")
 	var ball: Ball = ball_sc.instantiate()
-	var ray_offset = ball.position.distance_to(ray.get_collision_point()) - 5 if ball.position.distance_to(ray.get_collision_point()) < 64 else 64
+	ray.rotation = mouse_pos.angle()
+	var ray_offset = 32
 	var offset = mouse_pos.normalized() * ray_offset
+	print(ray_offset)
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
 	
 	ball.apply_central_impulse(mouse_pos.normalized() * speed) 
 	pass
 
+func _physics_process(delta: float) -> void:
+	linear_velocity *= 0.97
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mouse_pos = get_local_mouse_position()
-	mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
 	
 	var ball_speed = mouse_pos.length() if mouse_pos.length() < 100 else 100
 	if not moving and Input.is_action_pressed("LMB"):
@@ -37,7 +41,7 @@ func _process(delta: float) -> void:
 		
 		powerbar.visible = true
 		powerbar.size.y = ball_speed 
-		powerbar.rotation = mouse_dir
+		powerbar.rotation = mouse_pos.angle() + 3*PI/2
 	else:
 		powerbar.visible = false
 	

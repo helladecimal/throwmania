@@ -12,13 +12,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(bounces)
 	if bounces > 3 or timer.is_stopped():
 		queue_free()
 	pass
 
 
 func _on_body_entered(body: Node) -> void:
-	print("hi")
 	bounces += 1
 	pass # Replace with function body.
