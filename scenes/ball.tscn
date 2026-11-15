@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwj1hrfoquwyd"]
 
-[ext_resource type="Texture2D" uid="uid://j2ae0dx10fx8" path="res://assets/icon.svg" id="1_7s4qf"]
 [ext_resource type="Script" uid="uid://5r3utpikltoj" path="res://scripts/ball.gd" id="1_cxlvu"]
+[ext_resource type="Texture2D" uid="uid://ca3baydhdiebe" path="res://assets/ball.png" id="2_cxlvu"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cxlvu"]
 friction = 0.0
@@ -23,8 +23,8 @@ shape = SubResource("CircleShape2D_cxlvu")
 debug_color = Color(0.9771052, 0, 0.41036576, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496947324]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_7s4qf")
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_cxlvu")
 
 [node name="Despawn" type="Timer" parent="." unique_id=1656821915]
 wait_time = 6.0

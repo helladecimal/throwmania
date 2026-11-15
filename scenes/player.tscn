@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://n4tt7ta0rue2"]
 
-[ext_resource type="Texture2D" uid="uid://j2ae0dx10fx8" path="res://assets/icon.svg" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://3omdge6cha1y" path="res://assets/player.png" id="1_3vyb7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cxlvu"]
 friction = 0.0
@@ -14,8 +14,8 @@ physics_material_override = SubResource("PhysicsMaterial_cxlvu")
 lock_rotation = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994624335]
-position = Vector2(-2.5629997e-06, -2.5629997e-06)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+scale = Vector2(3, 3)
 texture = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1692427593]
