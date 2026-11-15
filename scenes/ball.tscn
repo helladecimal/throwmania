@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bwj1hrfoquwyd"]
 
+[ext_resource type="Texture2D" uid="uid://j2ae0dx10fx8" path="res://assets/icon.svg" id="1_7s4qf"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 
 [node name="Ball" type="RigidBody2D" unique_id=336183156]
@@ -8,3 +10,7 @@ lock_rotation = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2055469394]
 shape = SubResource("CircleShape2D_g4v7s")
 debug_color = Color(0.9771052, 0, 0.41036576, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1496947324]
+scale = Vector2(0.125, 0.046875)
+texture = ExtResource("1_7s4qf")
