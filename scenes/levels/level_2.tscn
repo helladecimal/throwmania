@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bojomux8ubejs"]
 
+[ext_resource type="Script" uid="uid://jx0cl2qhacww" path="res://scenes/levels/level.gd" id="1_qpwj6"]
 [ext_resource type="Texture2D" uid="uid://b586qf1o2ecxo" path="res://assets/textures.png" id="1_tex"]
 [ext_resource type="FontFile" uid="uid://cq21812qm3heh" path="res://assets/VT323-Regular.ttf" id="2_font"]
 [ext_resource type="PackedScene" uid="uid://bwbic8grey4xf" path="res://scenes/end_flag.tscn" id="3_flag"]
@@ -33,6 +34,8 @@ font = ExtResource("2_font")
 font_size = 65
 
 [node name="Level 2" type="Node2D" unique_id=1670832492]
+script = ExtResource("1_qpwj6")
+level = 2
 
 [node name="BG" type="TileMapLayer" parent="." unique_id=966033310]
 scale = Vector2(3, 3)
@@ -55,7 +58,7 @@ label_settings = SubResource("LabelSettings_jyhfs")
 horizontal_alignment = 1
 
 [node name="EndFlag" parent="." unique_id=639021363 instance=ExtResource("3_flag")]
-position = Vector2(1848, 552)
+position = Vector2(1792.0001, 576)
 
 [node name="Spawn" type="Marker2D" parent="." unique_id=289738515]
 position = Vector2(-48, 80)

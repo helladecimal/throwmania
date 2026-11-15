@@ -18,7 +18,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=582687542]
 layout_mode = 2
-text = "my game"
+text = "Throwmania"
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1204691861]
 layout_mode = 2

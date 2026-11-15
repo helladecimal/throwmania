@@ -18,10 +18,10 @@ script = ExtResource("2_tbgi4")
 [node name="Balls" type="Node" parent="Main2D/Current Level/Level 1" unique_id=2120651140]
 
 [node name="Player" parent="Main2D/Current Level/Level 1" unique_id=405129931 instance=ExtResource("1_o5qli")]
-lock_rotation = true
 script = ExtResource("2_sugp2")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=353599394]
+visible = false
 script = ExtResource("4_jyhfs")
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=862622375]
