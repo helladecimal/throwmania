@@ -20,8 +20,8 @@ func throw(speed):
 	
 	print(ray.get_collider())
 	ray.target_position = mouse_pos.normalized() * 32
-	print(ray.get_collision_point().length())
-	var ray_offset = (ray.get_collision_point().length()) + 2 if ray.is_colliding() else 32
+	print(position.distance_to(ray.get_collision_point()))
+	var ray_offset = (position.distance_to(ray.get_collision_point()) + 2) if ray.is_colliding() else 32
 	var offset = mouse_pos.normalized() * ray_offset
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
