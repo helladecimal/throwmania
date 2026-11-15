@@ -4,6 +4,7 @@ class_name Player
 @export var health = 100
 @export var moving = false
 @onready var powerbar: ColorRect = $powerbar
+@onready var ray: RayCast2D = $RayCast2D
 
 var power = 300.0
 # Called when the node enters the scene tree for the first time.
@@ -14,19 +15,26 @@ var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
 func throw(speed):
 	print(speed)
-	var offset = mouse_pos.normalized() * 64
 	var ball_sc: PackedScene = load("res://scenes/ball.tscn")
 	var ball: Ball = ball_sc.instantiate()
+	
+	print(ray.get_collider())
+	ray.target_position = mouse_pos.normalized() * 32
+	print(ray.get_collision_point().length())
+	var ray_offset = (ray.get_collision_point().length()) + 2 if ray.is_colliding() else 32
+	var offset = mouse_pos.normalized() * ray_offset
 	ball.position = position + offset
 	get_tree().root.add_child(ball)
 	
 	ball.apply_central_impulse(mouse_pos.normalized() * speed) 
 	pass
 
+func _physics_process(delta: float) -> void:
+	linear_velocity *= 0.97
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mouse_pos = get_local_mouse_position()
-	mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
 	
 	var ball_speed = mouse_pos.length() if mouse_pos.length() < 100 else 100
 	if not moving and Input.is_action_pressed("LMB"):
@@ -35,7 +43,7 @@ func _process(delta: float) -> void:
 		
 		powerbar.visible = true
 		powerbar.size.y = ball_speed 
-		powerbar.rotation = mouse_dir
+		powerbar.rotation = mouse_pos.angle() + 3*PI/2
 	else:
 		powerbar.visible = false
 	
