@@ -9,7 +9,11 @@ class_name Player
 var power = 450.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	reset()
 	pass # Replace with function body.
+
+func reset():
+	position = get_parent().find_child("Current Level").get_children()[0].find_child("Spawn").position
 
 var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
@@ -46,6 +50,9 @@ func _process(delta: float) -> void:
 		powerbar.rotation = mouse_pos.angle() + 3*PI/2
 	else:
 		powerbar.visible = false
+	
+	if Input.is_action_just_pressed("Restart"):
+		reset()
 	
 	if not moving and Input.is_action_just_released("LMB"):
 		throw((ball_speed/100.0) * power)

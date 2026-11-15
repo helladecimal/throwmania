@@ -1,13 +1,18 @@
 extends Area2D
-## Touching this flag finishes the level and loads the next one.
 
-var reached := false
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
+	pass # Replace with function body.
 
-func _on_body_entered(body: Node) -> void:
-	if reached or not body is Player:
-		return
-	reached = true
-	get_tree().call_group("level_manager", "next_level")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var lvl: Level = get_parent()
+		lvl.get_tree().change_scene_to_file("res://scenes/levels/level_" + str(lvl.level) + ".tscn")
+	pass # Replace with function body.
