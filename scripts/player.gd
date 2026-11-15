@@ -5,7 +5,7 @@ class_name Player
 @export var moving = false
 @onready var powerbar: ColorRect = $powerbar
 
-var power = 70.0
+var power = 400.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,13 +14,13 @@ var mouse_pos = get_local_mouse_position()
 var mouse_dir = atan2(mouse_pos.y, mouse_pos.x) + 3*PI/2
 func throw(speed):
 	print(speed)
-	var offset = mouse_pos.normalized() * 40
+	var offset = mouse_pos.normalized() * 64
 	var ball_sc: PackedScene = load("res://scenes/ball.tscn")
-	var ball = ball_sc.instantiate()
+	var ball: Ball = ball_sc.instantiate()
 	ball.position = position + offset
-	add_child(ball)
+	get_tree().root.add_child(ball)
 	
-	ball.linear_velocity = mouse_pos.normalized() * speed
+	ball.apply_central_force(mouse_pos.normalized() * speed) 
 	pass
 
 func _physics_process(delta: float) -> void:
